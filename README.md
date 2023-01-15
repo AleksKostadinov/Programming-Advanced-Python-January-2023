@@ -14,6 +14,5 @@ Online judge system: https://judge.softuni.org/
 ## Table of Contents:
 
 - [Lists as Stacks and Queues](https://github.com/AleksKostadinov/Programming-Advanced-Python-January-2023/tree/main/lists_as_stacks_and_queues)
-<br>
 - [Tuples and Sets](https://github.com/AleksKostadinov/Programming-Advanced-Python-January-2023/tree/main/tuples_and_sets)
-<br>
+
