@@ -16,3 +16,4 @@ Online judge system: https://judge.softuni.org/
 - [Lists as Stacks and Queues](https://github.com/AleksKostadinov/Programming-Advanced-Python-January-2023/tree/main/lists_as_stacks_and_queues)
 - [Tuples and Sets](https://github.com/AleksKostadinov/Programming-Advanced-Python-January-2023/tree/main/tuples_and_sets)
 - [Stacks, Queues, Tuples and Sets](https://github.com/AleksKostadinov/Programming-Advanced-Python-January-2023/tree/main/stacks_queues_tuples_and_sets)
+- [Multidimensional Lists](https://github.com/AleksKostadinov/Programming-Advanced-Python-January-2023/tree/main/multidimensional_lists)
