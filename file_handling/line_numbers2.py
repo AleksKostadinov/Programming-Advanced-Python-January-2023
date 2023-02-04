@@ -6,7 +6,9 @@ def get(line_, path):
 
 
 letter = r'[a-z]'
-punctuation = r"[?,1.'-]"
+punctuation = r"[?,!.'-]"
+
+output_file = open('output2.txt', 'w')
 
 with open('text2.txt', 'r') as f:
     lines = f.readlines()
@@ -14,5 +16,7 @@ with open('text2.txt', 'r') as f:
     for line in lines:
         num_letters = get(line, letter)
         num_punctuation = get(line, punctuation)
-        print(f"Line {count}: {line[:-1]} ({num_letters})({num_punctuation})")
+        output_file.write(f"Line {count}: {line[:-1]} ({num_letters})({num_punctuation})\n")
         count += 1
+
+output_file.close()
