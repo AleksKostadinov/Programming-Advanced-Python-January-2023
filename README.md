@@ -19,3 +19,5 @@ Online judge system: https://judge.softuni.org/
 - [Multidimensional Lists](https://github.com/AleksKostadinov/Programming-Advanced-Python-January-2023/tree/main/multidimensional_lists)
 - [Functions Advanced](https://github.com/AleksKostadinov/Programming-Advanced-Python-January-2023/tree/main/functions_advanced)
 - [Error Handling](https://github.com/AleksKostadinov/Programming-Advanced-Python-January-2023/tree/main/error_handling)
+- [File Handling](https://github.com/AleksKostadinov/Programming-Advanced-Python-January-2023/tree/main/file_handling)
+- [Past Exams](https://github.com/AleksKostadinov/Programming-Advanced-Python-January-2023/tree/main/exams)
