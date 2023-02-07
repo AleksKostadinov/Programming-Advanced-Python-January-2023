@@ -22,7 +22,7 @@ while email != "End":
 
     name, domain = email.split('@')
 
-    if len(name) <= 4:
+    if len(name) <= MIN_LENGTH:
         raise NameTooShortError(f"Name must be more than {MIN_LENGTH} characters")
 
     if not any(email.endswith(x) for x in valid_domains):
