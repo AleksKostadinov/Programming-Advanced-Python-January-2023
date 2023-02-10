@@ -28,6 +28,6 @@ while email != "End":
     if not any(email.endswith(x) for x in valid_domains):
         raise InvalidDomainError(f'Domain must be one of the following: {", ".join(valid_domains)}')
 
-    print('Email s valid')
+    print('Email is valid')
 
     email = input()
