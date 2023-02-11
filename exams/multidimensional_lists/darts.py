@@ -13,22 +13,20 @@ matrix = [[int(x) if x.isdigit() else x for x in input().split()] for _ in range
 while True:
     player = players.pop(0)
     row, col = [int(x) for x in input()[1:-1].split(', ')]
-    step_on = str(matrix[row][col])
     player['throws'] += 1
-    if not check_valid_index(row, col):
-        continue
+    if check_valid_index(row, col):
+        step_on = str(matrix[row][col])
+        if step_on.isdigit():
+            player['SCORE'] -= int(step_on)
+        elif step_on == 'D':
+            player['SCORE'] -= 2 * bonus(row, col)
+        elif step_on == 'T':
+            player['SCORE'] -= 3 * bonus(row, col)
+        elif step_on == 'B':
+            break
 
-    if step_on.isdigit():
-        player['SCORE'] -= int(step_on)
-    elif step_on == 'D':
-        player['SCORE'] -= 2 * bonus(row, col)
-    elif step_on == 'T':
-        player['SCORE'] -= 3 * bonus(row, col)
-    elif step_on == 'B':
-        break
-
-    if player['SCORE'] <= 0:
-        break
+        if player['SCORE'] <= 0:
+            break
 
     players.append(player)
 

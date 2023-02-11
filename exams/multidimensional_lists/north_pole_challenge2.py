@@ -64,7 +64,8 @@ while command != 'End' and items:
             break
 
     matrix[player_row][player_col] = 'Y'
-
+    if not items:
+        break
     command = input()
 if not items:
     print("Merry Christmas!")

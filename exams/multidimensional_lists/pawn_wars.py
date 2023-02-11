@@ -10,18 +10,18 @@ def move_func(pawn_, move_row, move_col):
     return [move_row - 1, move_col] if pawn_ == 'white' else [move_row + 1, move_col]
 
 
-def capture_func(pawn_, white_row_, white_col_, black_row_, black_col_):
+def promoted_queen(pawn_, white_row_, white_col_, black_row_, black_col_):
     if pawn_ == 'white':
-        if (white_col_ - 1, white_row_ - 1) == (black_col_, black_row_):
-            return black_row_, black_col_
-        elif (white_col_ + 1, white_row_ - 1) == (black_col_, black_row_):
-            return black_row_, black_col_
+        if (white_row_ - 1, white_col_ - 1) == (black_row_, black_col_):
+            return True
+        elif (white_row_ - 1, white_col_ + 1) == (black_row_, black_col_):
+            return True
     elif pawn_ == 'black':
-        if (black_col_ + 1, black_row_ + 1) == (white_col_, white_row_):
-            return white_row_, white_col_
-        elif (black_col_ - 1, black_row_ + 1) == (white_col_, white_row_):
-            return white_row_, white_col_
-    return None
+        if (black_row_ + 1, black_col_ - 1) == (white_row_, white_col_):
+            return True
+        elif (black_row_ + 1, black_col_ + 1) == (white_row_, white_col_):
+            return True
+    return False
 
 
 SIZE = 8
@@ -29,7 +29,6 @@ matrix = []
 pawns = ['white', 'black']
 white_row, white_col, black_row, black_col = 0, 0, 0, 0
 capture = False
-capture_col, capture_row = 0, 0
 
 for row in range(SIZE):
     matrix.append(input().split())
@@ -41,31 +40,34 @@ for row in range(SIZE):
 while True:
     pawn = pawns[0]
 
-    if capture_func(pawn, white_row, white_col, black_row, black_col):
-        capture_row, capture_col = capture_func(pawn, white_row, white_col, black_row, black_col)
-        winner = pawn.capitalize()
+    if promoted_queen(pawn, white_row, white_col, black_row, black_col):
+        winner = pawn
         capture = True
+        if winner == 'white':
+            white_row, white_col = black_row, black_col
+        else:
+            black_row, black_col = white_row, white_col
         break
 
     if pawn == 'white':
         white_row, white_col = move_func(pawn, white_row, white_col)
         if winner_func(pawn, white_row):
-            winner = pawn.capitalize()
+            winner = pawn
             break
     elif pawn == 'black':
         black_row, black_col = move_func(pawn, black_row, black_col)
         if winner_func(pawn, black_row):
-            winner = pawn.capitalize()
+            winner = pawn
             break
 
     pawns[0], pawns[1] = pawns[1], pawns[0]
 
 winner_col = white_col if pawn == 'white' else black_col
-winner_row = SIZE - white_row if pawn == 'white' else SIZE - black_col
+winner_row = white_row if pawn == 'white' else black_row
 ascii_col = chr(97 + winner_col)
-ascii_capture_coll = chr(97 + capture_col)
+
 
 if capture:
-    print(f"Game over! {winner} win, capture on {ascii_capture_coll}{SIZE - capture_row}.")
+    print(f"Game over! {winner.capitalize()} win, capture on {ascii_col}{SIZE - winner_row}.")
 else:
-    print(f"Game over! {winner} pawn is promoted to a queen at {ascii_col}{winner_row}.")
+    print(f"Game over! {winner.capitalize()} pawn is promoted to a queen at {ascii_col}{SIZE - winner_row}.")
