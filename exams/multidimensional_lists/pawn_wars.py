@@ -1,4 +1,4 @@
-def winner_func(pawn_, row_):
+def promoted_queen(pawn_, row_):
     if pawn_ == 'white' and row_ == 0:
         return True
     elif pawn_ == 'black' and row_ == SIZE - 1:
@@ -10,7 +10,7 @@ def move_func(pawn_, move_row, move_col):
     return [move_row - 1, move_col] if pawn_ == 'white' else [move_row + 1, move_col]
 
 
-def promoted_queen(pawn_, white_row_, white_col_, black_row_, black_col_):
+def winner_func(pawn_, white_row_, white_col_, black_row_, black_col_):
     if pawn_ == 'white':
         if (white_row_ - 1, white_col_ - 1) == (black_row_, black_col_):
             return True
@@ -40,7 +40,7 @@ for row in range(SIZE):
 while True:
     pawn = pawns[0]
 
-    if promoted_queen(pawn, white_row, white_col, black_row, black_col):
+    if winner_func(pawn, white_row, white_col, black_row, black_col):
         winner = pawn
         capture = True
         if winner == 'white':
@@ -51,12 +51,12 @@ while True:
 
     if pawn == 'white':
         white_row, white_col = move_func(pawn, white_row, white_col)
-        if winner_func(pawn, white_row):
+        if promoted_queen(pawn, white_row):
             winner = pawn
             break
     elif pawn == 'black':
         black_row, black_col = move_func(pawn, black_row, black_col)
-        if winner_func(pawn, black_row):
+        if promoted_queen(pawn, black_row):
             winner = pawn
             break
 
