@@ -129,3 +129,5 @@ dmypy.json
 .pyre/
 /cheatsheet_MATRIX.py
 /tests/
+/cheatsheet_stacks_queues.py
+/cheatsheet_functions.py
